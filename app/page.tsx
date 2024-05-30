@@ -28,6 +28,13 @@ function Arrow(props: {
   );
 }
 
+interface TimeLeft {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
 export default function Home() {
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -41,46 +48,37 @@ export default function Home() {
     },
   });
 
-  
-
   const targetDate = new Date("2024-06-10T00:00:00");
 
-
-  const calculateTimeLeft = () => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const calculateTimeLeft = (): TimeLeft => {
     const now = new Date();
-    const difference = targetDate - now;
+    const difference = targetDate.getTime() - now.getTime();
 
-
-    let timeLeft = {};
-
+    let timeLeft: TimeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
     if (difference > 0) {
       timeLeft = {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor(difference / (1000 * 60 * 60)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / (1000 * 60)) % 60),
         seconds: Math.floor((difference / 1000) % 60),
       };
     }
 
-
     return timeLeft;
   };
 
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-
     // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
-  }, []);
-
+  }, [calculateTimeLeft]);
 
   return (
     <div className="max-h-screen w-auto bg-white">
@@ -90,19 +88,21 @@ export default function Home() {
             <Image src="/logo.png" width={100} height={100} alt="logo" />
           </div>
           <div className="flex text-black">
-            <button>
+            <button type="submit">
               <h1 className="px-10">Project</h1>
             </button>
-            <button>
+            <button type="submit">
               <h1 className="px-10">Skill</h1>
             </button>
-            <button>
+            <button type="submit">
               <h1 className="px-10">Gallery</h1>
             </button>
           </div>
           <div>
             <div className="w-22 h-auto rounded-lg bg-red-500 px-2 py-1">
-              <button className="m-0 text-center text-xs">Buy Ticket</button>
+              <button type="submit" className="m-0 text-center text-xs">
+                Buy Ticket
+              </button>
             </div>
           </div>
         </div>
@@ -114,11 +114,12 @@ export default function Home() {
                   What is Nyeni Fest?
                 </h1>
                 <h1 className="p-4">
-                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse nulla, exercitationem natus quo ipsam assumenda voluptate molestiae odit sequi, provident sit commodi, nobis consectetur. Reiciendis sequi doloribus at dicta perferendis.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+                  nulla, exercitationem natus quo ipsam assumenda voluptate
+                  molestiae odit sequi, provident sit commodi, nobis
+                  consectetur. Reiciendis sequi doloribus at dicta perferendis.
                 </h1>
-                <h1 className="p-4">
-                  Check out our media sosial bellow.
-                </h1>
+                <h1 className="p-4">Check out our media sosial bellow.</h1>
               </div>
               <div className="mx-4 h-[50px] w-[200px] rounded-md bg-gray-200 px-2 pt-2">
                 <div className="flex items-center justify-between px-4 pt-2 ">
@@ -143,7 +144,6 @@ export default function Home() {
                   />
                 </div>
               </div>
-             
             </div>
             <div>
               <Image
@@ -193,6 +193,7 @@ export default function Home() {
                       e.stopPropagation() || instanceRef.current?.prev()
                     }
                     disabled={currentSlide === 0}
+                    type="submit"
                   >
                     <Image src="/left.png" width={30} height={30} alt="arrow" />
                   </button>
@@ -238,6 +239,7 @@ export default function Home() {
                       currentSlide ===
                       instanceRef.current.track.details.slides.length - 1
                     }
+                    type="submit"
                   >
                     <Image
                       src="/right.png"
@@ -254,68 +256,66 @@ export default function Home() {
       </div>
       <div className="h-[512px] w-auto bg-white px-14 ">
         <div>
-          <h1 className="pt-10 text-center text-xl text-black">
-            Package
-          </h1>
+          <h1 className="pt-10 text-center text-xl text-black">Package</h1>
         </div>
         <div className="flex flex-wrap items-center justify-between gap-10 pt-20">
           <div className="h-28 w-72 rounded-md bg-black">
             <div className="p-5">
               <div>
-                    <div>
-                       <h1>Early Bird</h1>
-                       <p>Rp. 100.000</p>
-                    </div>
+                <div>
+                  <h1>Early Bird</h1>
+                  <p>Rp. 100.000</p>
+                </div>
               </div>
             </div>
           </div>
           <div className="h-28 w-72 rounded-md bg-black">
             <div className="p-5">
-               <div>
-                    <div>
-                       <h1>Reguler</h1>
-                       <p>Rp. 200.000</p>
-                    </div>
+              <div>
+                <div>
+                  <h1>Reguler</h1>
+                  <p>Rp. 200.000</p>
+                </div>
               </div>
             </div>
           </div>
           <div className="h-28 w-72 rounded-md bg-black ">
             <div className="p-5">
               <div>
-                    <div>
-                       <h1>Presale 1</h1>
-                       <p>Rp. 250.000</p>
-                    </div>
-              </div>
-            </div>
-          </div>
-          <div className="h-28 w-72 rounded-md bg-black">
-           <div className="p-5">
-              <div>
-                    <div>
-                       <h1>Presale 3</h1>
-                       <p>Rp. 350.000</p>
-                    </div>
-              </div>
-            </div>
-          </div>
-          <div className="h-28 w-72 rounded-md bg-black">
-           <div className="p-5">
-              <div>
-                    <div>
-                       <h1>Presale 4</h1>
-                       <p>Rp. 450.000</p>
-                    </div>
+                <div>
+                  <h1>Presale 1</h1>
+                  <p>Rp. 250.000</p>
+                </div>
               </div>
             </div>
           </div>
           <div className="h-28 w-72 rounded-md bg-black">
             <div className="p-5">
               <div>
-                    <div>
-                       <h1>Presale 5</h1>
-                       <p>Rp. 500.000</p>
-                    </div>
+                <div>
+                  <h1>Presale 3</h1>
+                  <p>Rp. 350.000</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="h-28 w-72 rounded-md bg-black">
+            <div className="p-5">
+              <div>
+                <div>
+                  <h1>Presale 4</h1>
+                  <p>Rp. 450.000</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="h-28 w-72 rounded-md bg-black">
+            <div className="p-5">
+              <div>
+                <div>
+                  <h1>Presale 5</h1>
+                  <p>Rp. 500.000</p>
+                </div>
               </div>
             </div>
           </div>
@@ -335,6 +335,7 @@ export default function Home() {
                       e.stopPropagation() || instanceRef.current?.prev()
                     }
                     disabled={currentSlide === 0}
+                    type="submit"
                   >
                     <Image src="/left.png" width={30} height={30} alt="arrow" />
                   </button>
@@ -380,6 +381,7 @@ export default function Home() {
                       currentSlide ===
                       instanceRef.current.track.details.slides.length - 1
                     }
+                    type="submit"
                   >
                     <Image
                       src="/right.png"
@@ -392,7 +394,6 @@ export default function Home() {
               )}
             </div>
           </div>
-         
         </>
       </div>
     </div>
