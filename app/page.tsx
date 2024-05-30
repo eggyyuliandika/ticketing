@@ -147,7 +147,7 @@ export default function Home() {
             </div>
             <div>
               <Image
-                src="/konser.jpg"
+                src="/konser.png"
                 width={500}
                 height={700}
                 alt="konser"
@@ -203,29 +203,29 @@ export default function Home() {
 
             <div ref={sliderRef} className="keen-slider px-[6px]">
               <div className="keen-slider__slide number-slide1 flex">
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
               </div>
               <div className="keen-slider__slide number-slide2 flex">
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
               </div>
 
               <div className="keen-slider__slide number-slide3 flex">
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
               </div>
               <div className="keen-slider__slide number-slide4 flex">
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
               </div>
               <div className="keen-slider__slide number-slide5 flex">
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
               </div>
               <div className="keen-slider__slide number-slide6 flex">
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
               </div>
             </div>
             <div className="pr-[40px] pt-[40px]">
@@ -345,29 +345,29 @@ export default function Home() {
 
             <div ref={sliderRef} className="keen-slider px-[6px]">
               <div className="keen-slider__slide number-slide1 flex">
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
               </div>
               <div className="keen-slider__slide number-slide2 flex">
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
               </div>
 
               <div className="keen-slider__slide number-slide3 flex">
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
               </div>
               <div className="keen-slider__slide number-slide4 flex">
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
               </div>
               <div className="keen-slider__slide number-slide5 flex">
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
               </div>
               <div className="keen-slider__slide number-slide6 flex">
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
-                <Image src="/konser.jpg" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
+                <Image src="/konser.png" width={500} height={500} alt="image" />
               </div>
             </div>
             <div className="pr-[40px] pt-[40px]">
